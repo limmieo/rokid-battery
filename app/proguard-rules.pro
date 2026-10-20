@@ -1,0 +1,3 @@
+-keep class com.rokid.sprite.aiapp.externalapp.auth.** { *; }
+-keep class com.rokid.sprite.aiapp.externalapp.IMediaStreamService** { *; }
+-keep class com.rokid.sprite.aiapp.externalapp.IDeviceStatusCallback** { *; }

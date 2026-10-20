@@ -1,0 +1,16 @@
+plugins { id 'com.android.application' version '8.11.1' apply false }
+
+def policyClasses = layout.buildDirectory.dir('policy-test')
+tasks.register('compilePolicyTests', JavaCompile) {
+    source = files('app/src/main/java/app/rokidbattery/BatteryPolicy.java', 'tests/BatteryPolicyTest.java')
+    classpath = files()
+    destinationDirectory = policyClasses
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+    options.release = 17
+}
+tasks.register('policyTest', JavaExec) {
+    dependsOn 'compilePolicyTests'
+    classpath = files(policyClasses)
+    mainClass = 'app.rokidbattery.BatteryPolicyTest'
+}
